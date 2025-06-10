@@ -178,13 +178,3 @@ require('lualine').setup({
     lualine_z = { 'location' }
   },
 })
-
--- ESLint Linter and Auto Formatter
-local null_ls = require("null-ls")
-null_ls.setup({
-  sources = {
-    null_ls.builtins.diagnostics.eslint_d, -- ESLint Linter
-    null_ls.builtins.formatting.eslint_d, -- ESLint Auto Formatter
-    require("null-ls").builtins.formatting.prettier,
-  },
-})
