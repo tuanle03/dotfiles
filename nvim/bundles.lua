@@ -154,17 +154,8 @@ require('packer').startup(function(use)
   --   requires = { 'nvim-lua/plenary.nvim' }
   -- }
   use {
-    'nvimtools/none-ls.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      require('none-ls').setup({
-        sources = {
-          require('none-ls').builtins.diagnostics.eslint_d,
-          require('none-ls').builtins.formatting.eslint_d,
-          require('none-ls').builtins.formatting.prettier,
-        },
-      })
-    end,
+    "nvimtools/none-ls.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
   }
 
 end)
