@@ -88,6 +88,59 @@ require('moiday').setup({
   }
 })
 
+require('nvim-web-devicons').setup({
+  default = true,
+})
+
+vim.cmd([[
+  command! NERDTree NvimTreeToggle
+  command! NERDTreeToggle NvimTreeToggle
+  command! NERDTreeFind NvimTreeFindFile
+  command! NERDTreeRefresh NvimTreeRefresh
+  command! NERDTreeFocus NvimTreeFocus
+]])
+-- Set up nvim-tree
+require("nvim-tree").setup({
+  filters = {
+    dotfiles = true, -- Hide dotfiles
+    custom = {
+      '.git', -- Hide .git directory
+      'node_modules', -- Hide node_modules directory
+      'vendor', -- Hide vendor directory
+      'tmp', -- Hide tmp directory
+      'log', -- Hide log files
+      'public', -- Hide public directory
+    },
+  },
+  renderer = {
+    icons = {
+      show = {
+        file = true,
+        folder = true,
+        folder_arrow = true,
+        git = true,
+      },
+    }
+  },
+  git = {
+    enable = true,
+  },
+  view = {
+    width = 30,
+    side = 'left',
+  },
+})
+
+-- Set up lualine
+require('lualine').setup({
+  options = {
+    icons_enabled = true,
+    theme = 'catppuccin-mocha',
+    component_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' },
+  },
+})
+
 -- ESLint Linter and Auto Formatter
 local null_ls = require("null-ls")
 null_ls.setup({

@@ -144,6 +144,11 @@ _G.packer_plugins = {
     path = "/Users/tuanle/.local/share/nvim/site/pack/packer/start/indentline",
     url = "https://github.com/yggdroot/indentline"
   },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/Users/tuanle/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
   ["matchit.zip"] = {
     loaded = true,
     path = "/Users/tuanle/.local/share/nvim/site/pack/packer/start/matchit.zip",
@@ -154,20 +159,30 @@ _G.packer_plugins = {
     path = "/Users/tuanle/.local/share/nvim/site/pack/packer/start/moiday.nvim",
     url = "https://github.com/ThanhKhoaIT/moiday.nvim"
   },
-  nerdtree = {
-    loaded = true,
-    path = "/Users/tuanle/.local/share/nvim/site/pack/packer/start/nerdtree",
-    url = "https://github.com/KhoaRB/nerdtree"
-  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/Users/tuanle/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
+  nvim = {
+    loaded = true,
+    path = "/Users/tuanle/.local/share/nvim/site/pack/packer/start/nvim",
+    url = "https://github.com/catppuccin/nvim"
+  },
   ["nvim-compe"] = {
     loaded = true,
     path = "/Users/tuanle/.local/share/nvim/site/pack/packer/start/nvim-compe",
     url = "https://github.com/hrsh7th/nvim-compe"
+  },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/Users/tuanle/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/nvim-tree/nvim-tree.lua"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/Users/tuanle/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -208,6 +223,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tuanle/.local/share/nvim/site/pack/packer/start/tmuxline.vim",
     url = "https://github.com/edkolev/tmuxline.vim"
+  },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/Users/tuanle/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
   },
   ["vim-airline"] = {
     loaded = true,
