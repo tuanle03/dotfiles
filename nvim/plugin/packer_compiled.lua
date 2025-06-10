@@ -159,10 +159,10 @@ _G.packer_plugins = {
     path = "/Users/tuanle/.local/share/nvim/site/pack/packer/start/moiday.nvim",
     url = "https://github.com/ThanhKhoaIT/moiday.nvim"
   },
-  ["null-ls.nvim"] = {
+  ["none-ls.nvim"] = {
     loaded = true,
-    path = "/Users/tuanle/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
-    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
+    path = "/Users/tuanle/.local/share/nvim/site/pack/packer/start/none-ls.nvim",
+    url = "https://github.com/nvimtools/none-ls.nvim"
   },
   nvim = {
     loaded = true,

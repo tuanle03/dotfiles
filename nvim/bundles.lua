@@ -149,8 +149,12 @@ require('packer').startup(function(use)
   -- use 'CoderCookE/vim-chatgpt'
   --
 
+  -- use {
+  --   'jose-elias-alvarez/null-ls.nvim',
+  --   requires = { 'nvim-lua/plenary.nvim' }
+  -- }
   use {
-    'jose-elias-alvarez/null-ls.nvim',
+    'nvimtools/none-ls.nvim',
     requires = { 'nvim-lua/plenary.nvim' }
   }
 
