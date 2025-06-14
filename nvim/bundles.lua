@@ -64,7 +64,7 @@ require('packer').startup(function(use)
   use 'christoomey/vim-tmux-navigator'
   use 'mattn/gist-vim'
   -- use 'rking/ag.vim'
-  use 'KhoaRB/nerdtree'
+  -- use 'KhoaRB/nerdtree'
   use 'ryanoasis/vim-devicons'
   use 'tpope/vim-unimpaired'
   use 'yggdroot/indentline'
@@ -83,6 +83,17 @@ require('packer').startup(function(use)
   use 'vim-airline/vim-airline'
   use 'vim-airline/vim-airline-themes'
   use 'folke/tokyonight.nvim'
+  use 'nvim-tree/nvim-web-devicons'
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
+  }
 
   -- TMP
   -- use 'bendavis78/vim-polymer'
@@ -138,9 +149,13 @@ require('packer').startup(function(use)
   -- use 'CoderCookE/vim-chatgpt'
   --
 
+  -- use {
+  --   'jose-elias-alvarez/null-ls.nvim',
+  --   requires = { 'nvim-lua/plenary.nvim' }
+  -- }
   use {
-    'jose-elias-alvarez/null-ls.nvim',
-    requires = { 'nvim-lua/plenary.nvim' }
+    "nvimtools/none-ls.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
   }
 
 end)

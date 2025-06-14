@@ -396,9 +396,9 @@ let g:gitgutter_sign_modified = ''
 let g:gitgutter_sign_removed = ''
 let g:gitgutter_sign_modified_removed = ''
 
-highlight GitGutterAdd    guifg=#009900 ctermfg=2 guibg=#052229 ctermbg=NONE
-highlight GitGutterChange guifg=#bbbb00 ctermfg=3 guibg=#052229 ctermbg=NONE
-highlight GitGutterDelete guifg=#ff2222 ctermfg=1 guibg=#052229 ctermbg=NONE
+highlight GitGutterAdd    guifg=#009900 ctermfg=2 guibg=NONE ctermbg=NONE
+highlight GitGutterChange guifg=#bbbb00 ctermfg=3 guibg=NONE ctermbg=NONE
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1 guibg=NONE ctermbg=NONE
 
 
 """"""""""""""""""""""""""""""""""""""""
@@ -600,7 +600,7 @@ function! AutoSetColorScheme()
   let l:hour = str2nr(strftime("%H"))
 
   if l:hour >= 7 && l:hour < 18
-    colorscheme tokyonight-night
+    colorscheme catppuccin-macchiato
   else
     colorscheme catppuccin-mocha
   endif

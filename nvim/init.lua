@@ -88,12 +88,93 @@ require('moiday').setup({
   }
 })
 
--- ESLint Linter and Auto Formatter
-local null_ls = require("null-ls")
-null_ls.setup({
-  sources = {
-    null_ls.builtins.diagnostics.eslint_d, -- ESLint Linter
-    null_ls.builtins.formatting.eslint_d, -- ESLint Auto Formatter
-    require("null-ls").builtins.formatting.prettier,
+require('nvim-web-devicons').setup({
+  default = true,
+})
+
+vim.cmd([[
+  command! NERDTree NvimTreeToggle
+  command! NERDTreeToggle NvimTreeToggle
+  command! NERDTreeFind NvimTreeFindFile
+  command! NERDTreeRefresh NvimTreeRefresh
+  command! NERDTreeFocus NvimTreeFocus
+  command! NERDTreeClose NvimTreeClose
+]])
+-- Set up nvim-tree
+require("nvim-tree").setup({
+  filters = {
+    dotfiles = true, -- Hide dotfiles
+    custom = {
+      '.git', -- Hide .git directory
+      'node_modules', -- Hide node_modules directory
+      'vendor', -- Hide vendor directory
+      'tmp', -- Hide tmp directory
+      'log', -- Hide log files
+      'public', -- Hide public directory
+    },
+  },
+  renderer = {
+    icons = {
+      show = {
+        file = true,
+        folder = true,
+        folder_arrow = true,
+        git = true,
+      },
+    }
+  },
+  git = {
+    enable = true,
+  },
+  view = {
+    width = 30,
+    side = 'left',
+  },
+})
+
+-- Set up lualine
+require('lualine').setup({
+  options = {
+    icons_enabled = true,
+    theme = 'catppuccin-mocha',
+    component_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' },
+  },
+  sections = {
+    lualine_a = { 'mode' },
+    lualine_b = {
+      {
+        'branch',
+        icon = '', -- Git branch icon
+        colored = true, -- Color the branch name
+        fmt = function(branch)
+          local win_width = vim.api.nvim_win_get_width(0)
+          local max_length = math.floor(win_width * 0.2106) -- 21.06% of the window width
+
+          if #branch > max_length then
+            local head = branch:sub(1, math.floor(max_length * 0.6)) -- 60% of max_length
+            local tail = branch:sub(-math.floor(max_length * 0.4)) -- 40% of max_length
+            return head .. '...' .. tail
+          else
+            return branch
+          end
+        end,
+      },
+      {
+        'diff',
+        colored = true, -- Color the diff indicators
+        symbols = { added = ' ', modified = ' ', removed = ' ' }, -- Symbols for added, modified, and removed
+      }
+    },
+    lualine_c = {
+      {
+        'filename',
+        path = 1, -- 0: Just the filename, 1: Relative path, 2: Absolute path
+        shorting_target = 40, -- Shorten the filename to fit in the status line
+      }
+    },
+    lualine_x = { 'filetype' },
+    lualine_y = { 'progress' },
+    lualine_z = { 'location' }
   },
 })
