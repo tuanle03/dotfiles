@@ -113,6 +113,7 @@ chmod +x install.sh
 ```
 
 ## 🖼️ Screenshots
+![Screenshot 2025-06-23 at 14 44 42](https://github.com/user-attachments/assets/10192705-99e1-41f0-a94f-db22a882cfe1)
 
 ## 🧼 Uninstall
 To uninstall the dotfiles, you can remove the symlinks created in your home directory:
