@@ -133,7 +133,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 Contributions are welcome! If you have suggestions or improvements, feel free to open an issue or submit a pull request.
 
 ## 📫 Contact
-For any questions or feedback, you can reach me at [Tuan Le](fb.com/tuanle03) or [Email](mailto:letuanvl03@gmail.com).
+For any questions or feedback, you can reach me at [Tuan Le](https://fb.com/tuanle03) or [Email](mailto:letuanvl03@gmail.com).
 
 ## 🙏 Acknowledgements
 Thanks to the open-source community for providing the tools and plugins that make this setup possible. Special thanks to the maintainers of Neovim, Tmux, and Zsh for their incredible work.
