@@ -89,6 +89,11 @@ You can create symbolic links to the configuration files in your home directory.
     ```bash
     exec zsh
     ```
+6. **Reload Tmux configuration**:
+    Start a new Tmux session or reload your Tmux configuration:
+    ```bash
+    tmux source-file ~/.tmux.conf
+    ```
 
 ## ⚙️ Requirements
 - **Neovim**: Version 0.8 or higher
