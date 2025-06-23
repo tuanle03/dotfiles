@@ -65,8 +65,8 @@ nmap F za
 nmap K kJ
 " nmap <CR> *
 " nmap <S-CR> N
-nmap ( ^
-nmap ) $
+nmap H ^
+nmap L $
 nmap + :vertical resize +20<cr>
 nmap _ :vertical resize -20<cr>
 nmap <C-f> <PageDown>
