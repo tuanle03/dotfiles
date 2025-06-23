@@ -65,18 +65,18 @@ dotfiles/
 You can create symbolic links to the configuration files in your home directory. This allows you to keep your dotfiles organized in one place while still using them in your shell.
     ```bash
     mkdir -p ~/.config/nvim
-    ln -sf ~/.dotfiles/nvim ~/.config/nvim
+    ln -sf ~/dotfiles/nvim ~/.config/nvim
 
-    ln -s ~/.dotfiles/vim/.vimrc ~/.vimrc
-    ln -s ~/.dotfiles/vim/.vimrc.bundles ~/.vimrc.bundles
-    ln -s ~/.dotfiles/vim/.vimrc.local ~/.vimrc.local
+    ln -s ~/dotfiles/vim/.vimrc ~/.vimrc
+    ln -s ~/dotfiles/vim/.vimrc.bundles ~/.vimrc.bundles
+    ln -s ~/dotfiles/vim/.vimrc.local ~/.vimrc.local
 
-    ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
-    ln -s ~/.dotfiles/tmux/.tmux.conf.local ~/.tmux.conf.local
-    ln -s ~/.dotfiles/tmux/.tmux.conf.vim ~/.tmux.conf.vim
-    ln -s ~/.dotfiles/tmux/.tmux.conf.backup ~/.tmux.conf.backup
+    ln -s ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
+    ln -s ~/dotfiles/tmux/.tmux.conf.local ~/.tmux.conf.local
+    ln -s ~/dotfiles/tmux/.tmux.conf.vim ~/.tmux.conf.vim
+    ln -s ~/dotfiles/tmux/.tmux.conf.backup ~/.tmux.conf.backup
 
-    ln -s ~/.dotfiles/.zshrc ~/.zshrc
+    ln -s ~/dotfiles/.zshrc ~/.zshrc
     ```
 4. **Install Neovim plugins**:
     Open Neovim and run:
