@@ -103,7 +103,7 @@ vim.cmd([[
 -- Set up nvim-tree
 require("nvim-tree").setup({
   filters = {
-    dotfiles = true, -- Hide dotfiles
+    -- dotfiles = true, -- Hide dotfiles
     custom = {
       '.git', -- Hide .git directory
       'node_modules', -- Hide node_modules directory
