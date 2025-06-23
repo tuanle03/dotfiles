@@ -41,8 +41,17 @@ dotfiles/
 ## 🚀 Installation
 
 1. **Clone the repository**:
+   You can clone the repository using either SSH or HTTPS:
+   - **SSH** (requires SSH keys set up):
+     ```bash
+     git clone git@github.com:tuanle03/dotfiles.git ~/.dotfiles
+     ```
+   - **HTTPS** (no SSH keys required):
+     ```bash
+     git clone https://github.com/tuanle03/dotfiles.git ~/.dotfiles
+     ```
+   After cloning, navigate to the repository:
    ```bash
-   git clone git@github.com:tuanle03/dotfiles.git ~/.dotfiles
    cd ~/.dotfiles
    ```
 2. Backup your existing configuration files (optional but recommended):
