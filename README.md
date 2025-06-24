@@ -20,6 +20,9 @@ This setup is optimized for daily use in software engineering, with support for 
 
 ```bash
 dotfiles/
+├── config/
+│   └── tmuxinator/
+│       └── lixicrm.yml  # Tmuxinator project configuration
 ├── nvim/                  # Neovim config (Lua + Vimscript)
 │   ├── init.lua
 │   ├── local.vim
