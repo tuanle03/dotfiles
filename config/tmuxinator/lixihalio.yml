@@ -1,7 +1,7 @@
-# /Users/tuanle/.config/tmuxinator/lixiadmin.yml
+# /Users/tuanle/.config/tmuxinator/lixihalio.yml
 
-name: lixiadmin
-root: ~/projects/Lixibox/lixibox
+name: lixihalio
+root: ~/projects/Lixibox/halio-warranty
 
 # Optional tmux socket
 # socket_name: foo
@@ -55,16 +55,5 @@ windows:
       panes:
         - rc
   - server:
-      layout: main-horizontal
       panes:
-        - rs -p 4000
-        - sh -c 'lsof -i :6379 -t | xargs -r kill -9; redis-server'
-        - bundle exec sidekiq
-  - docker:
-      layout: even-vertical
-      panes:
-        - sh -c 'docker inspect -f "{{.State.Running}}" lixibox_elasticsearch 2>/dev/null | grep true || docker start lixibox_elasticsearch; docker attach lixibox_elasticsearch'
-        - sh -c 'docker inspect -f "{{.State.Running}}" lixibox_mongodb 2>/dev/null | grep true || docker start lixibox_mongodb; docker attach lixibox_mongodb'
-  - git:
-      panes:
-        - git status
+        - rs -p 5500

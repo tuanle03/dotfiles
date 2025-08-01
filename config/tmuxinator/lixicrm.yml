@@ -52,14 +52,24 @@ windows:
       panes:
         - nvim
   - console:
+      layout: even-horizontal
       panes:
-        - bundle exec rails console
+        - bundle; cl; rc
+        -
   - server:
       layout: main-horizontal
       panes:
-        - bundle exec rails s
-        - bin/vite dev
+        - bundle; cl; rs
+        - bundle; cl; bin/vite dev
         - tail -f log/development.log
+  - services:
+      layout: tiled
+      panes:
+        - bundle; cl; bundle exec sidekiq
+        - mailhog
+  - zrok:
+      panes:
+        - zrok share reserved lixicrm --headless
   - git:
       panes:
         - git status
