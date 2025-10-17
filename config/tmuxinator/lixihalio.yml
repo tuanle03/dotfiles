@@ -57,3 +57,6 @@ windows:
   - server:
       panes:
         - rs -p 5500
+  - workers:
+      panes:
+        - bundle exec sidekiq
