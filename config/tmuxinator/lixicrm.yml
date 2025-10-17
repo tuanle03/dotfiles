@@ -57,19 +57,18 @@ windows:
         - bundle; cl; rc
         -
   - server:
-      layout: main-horizontal
+      layout: even-horizontal
       panes:
         - bundle; cl; rs
         - bundle; cl; bin/vite dev
-        - tail -f log/development.log
   - services:
       layout: tiled
       panes:
         - bundle; cl; bundle exec sidekiq
         - mailhog
-  - zrok:
+  - cloudflare:
       panes:
-        - zrok share reserved lixicrm --headless
+        - cloudflared tunnel --config ~/.cloudflared/config.yml --protocol http2 run lixicrm
   - git:
       panes:
         - git status
