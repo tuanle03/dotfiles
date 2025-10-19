@@ -56,6 +56,9 @@ windows:
   - server:
       panes:
         - rs -p 7503
-  - git:
+  - ssh:
+      layout: main-horizontal
       panes:
-        - git status
+        - ssh -t ec2-user@3.25.65.194 'cd dentist-portfolio && docker attach dentist-portfolio-app-1'
+        - ssh -t ec2-user@3.25.65.194 'cd dentist-portfolio && docker exec -it dentist-portfolio-app-1 bin/rails c'
+        - ssh -t ec2-user@3.25.65.194 'cd dentist-portfolio && docker attach dentist-portfolio-db-1'
