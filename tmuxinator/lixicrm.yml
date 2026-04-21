@@ -51,6 +51,14 @@ windows:
       layout: even-horizontal
       panes:
         - nvim
+  - claude:
+      layout: even-horizontal
+      panes:
+        - claude
+  - hermes:
+      layout: even-horizontal
+      panes:
+        - hermes
   - console:
       layout: even-horizontal
       panes:
@@ -67,8 +75,10 @@ windows:
         - bundle; cl; bundle exec sidekiq
         - mailhog
   - cloudflare:
+      layout: even-horizontal
       panes:
-        - cloudflared tunnel --config ~/.cloudflared/config.yml --protocol http2 run lixicrm
+        - cloudflared tunnel --config ~/.cloudflared/config-cnmeo.yml --protocol http2 run cnmeo-lixicrm
+        - cloudflared tunnel --config ~/.cloudflared/config-cnmoew.yml --protocol http2 run cnmoew-survey
   - git:
       panes:
         - git status

@@ -51,6 +51,14 @@ windows:
       layout: even-horizontal
       panes:
         - nvim
+  - claude:
+      layout: even-horizontal
+      panes:
+        - claude
+  - copilot:
+      layout: even-horizontal
+      panes:
+        - copilot
   - console:
       panes:
         - rc
@@ -60,3 +68,6 @@ windows:
   - workers:
       panes:
         - bundle exec sidekiq
+  - github:
+      panes:
+        - git status

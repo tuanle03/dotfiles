@@ -1,0 +1,13 @@
+# Secrets — never commit
+.zshrc.secrets
+*.secrets
+*.local
+
+# Root-level .zshrc (superseded by zsh/.zshrc)
+/.zshrc
+
+# Neovim generated files
+nvim/plugin/packer_compiled.lua
+
+# macOS
+.DS_Store
