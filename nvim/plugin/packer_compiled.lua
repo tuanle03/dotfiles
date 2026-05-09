@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/tuanle/.cache/nvim/packer_hererocks/2.1.1748459687/share/lua/5.1/?.lua;/Users/tuanle/.cache/nvim/packer_hererocks/2.1.1748459687/share/lua/5.1/?/init.lua;/Users/tuanle/.cache/nvim/packer_hererocks/2.1.1748459687/lib/luarocks/rocks-5.1/?.lua;/Users/tuanle/.cache/nvim/packer_hererocks/2.1.1748459687/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/tuanle/.cache/nvim/packer_hererocks/2.1.1748459687/lib/lua/5.1/?.so"
+local package_path_str = "/Users/tuanle/.cache/nvim/packer_hererocks/2.1.1774896198/share/lua/5.1/?.lua;/Users/tuanle/.cache/nvim/packer_hererocks/2.1.1774896198/share/lua/5.1/?/init.lua;/Users/tuanle/.cache/nvim/packer_hererocks/2.1.1774896198/lib/luarocks/rocks-5.1/?.lua;/Users/tuanle/.cache/nvim/packer_hererocks/2.1.1774896198/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/tuanle/.cache/nvim/packer_hererocks/2.1.1774896198/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -165,7 +165,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvimtools/none-ls-extras.nvim"
   },
   ["none-ls.nvim"] = {
-    config = { "\27LJ\2\n@\0\0\3\0\5\0\a6\0\0\0009\0\1\0009\0\2\0009\0\3\0005\2\4\0B\0\2\1K\0\1\0\1\0\1\nasync\1\vformat\bbuf\blsp\bvim¹\1\1\2\a\0\n\0\0159\2\0\0'\4\1\0B\2\2\2\15\0\2\0X\3\t€6\2\2\0009\2\3\0029\2\4\2'\4\5\0005\5\6\0=\1\a\0053\6\b\0=\6\t\5B\2\3\1K\0\1\0\rcallback\0\vbuffer\1\0\2\vbuffer\0\rcallback\0\16BufWritePre\24nvim_create_autocmd\bapi\bvim\28textDocument/formatting\20supports_method\2\1\0\b\0\14\0\0276\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\n\0004\4\5\0006\5\0\0'\a\3\0B\5\2\2>\5\1\0046\5\0\0'\a\4\0B\5\2\2>\5\2\0049\5\5\0009\5\6\0059\5\a\5>\5\3\0049\5\5\0009\5\b\0059\5\t\5>\5\4\4=\4\v\0033\4\f\0=\4\r\3B\1\2\1K\0\1\0\14on_attach\0\fsources\1\0\2\14on_attach\0\fsources\0\rprettier\15formatting\frubocop\16diagnostics\rbuiltins none-ls.formatting.eslint_d!none-ls.diagnostics.eslint_d\nsetup\fnull-ls\frequire\0" },
+    config = { "\27LJ\2\n@\0\0\3\0\5\0\a6\0\0\0009\0\1\0009\0\2\0009\0\3\0005\2\4\0B\0\2\1K\0\1\0\1\0\1\nasync\1\vformat\bbuf\blsp\bvim¹\1\1\2\a\0\n\0\0159\2\0\0'\4\1\0B\2\2\2\15\0\2\0X\3\t€6\2\2\0009\2\3\0029\2\4\2'\4\5\0005\5\6\0=\1\a\0053\6\b\0=\6\t\5B\2\3\1K\0\1\0\rcallback\0\vbuffer\1\0\2\rcallback\0\vbuffer\0\16BufWritePre\24nvim_create_autocmd\bapi\bvim\28textDocument/formatting\20supports_method\2\1\0\b\0\14\0\0276\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\n\0004\4\5\0006\5\0\0'\a\3\0B\5\2\2>\5\1\0046\5\0\0'\a\4\0B\5\2\2>\5\2\0049\5\5\0009\5\6\0059\5\a\5>\5\3\0049\5\5\0009\5\b\0059\5\t\5>\5\4\4=\4\v\0033\4\f\0=\4\r\3B\1\2\1K\0\1\0\14on_attach\0\fsources\1\0\2\14on_attach\0\fsources\0\rprettier\15formatting\frubocop\16diagnostics\rbuiltins none-ls.formatting.eslint_d!none-ls.diagnostics.eslint_d\nsetup\fnull-ls\frequire\0" },
     loaded = true,
     path = "/Users/tuanle/.local/share/nvim/site/pack/packer/start/none-ls.nvim",
     url = "https://github.com/nvimtools/none-ls.nvim"
@@ -390,7 +390,7 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: none-ls.nvim
 time([[Config for none-ls.nvim]], true)
-try_loadstring("\27LJ\2\n@\0\0\3\0\5\0\a6\0\0\0009\0\1\0009\0\2\0009\0\3\0005\2\4\0B\0\2\1K\0\1\0\1\0\1\nasync\1\vformat\bbuf\blsp\bvim¹\1\1\2\a\0\n\0\0159\2\0\0'\4\1\0B\2\2\2\15\0\2\0X\3\t€6\2\2\0009\2\3\0029\2\4\2'\4\5\0005\5\6\0=\1\a\0053\6\b\0=\6\t\5B\2\3\1K\0\1\0\rcallback\0\vbuffer\1\0\2\vbuffer\0\rcallback\0\16BufWritePre\24nvim_create_autocmd\bapi\bvim\28textDocument/formatting\20supports_method\2\1\0\b\0\14\0\0276\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\n\0004\4\5\0006\5\0\0'\a\3\0B\5\2\2>\5\1\0046\5\0\0'\a\4\0B\5\2\2>\5\2\0049\5\5\0009\5\6\0059\5\a\5>\5\3\0049\5\5\0009\5\b\0059\5\t\5>\5\4\4=\4\v\0033\4\f\0=\4\r\3B\1\2\1K\0\1\0\14on_attach\0\fsources\1\0\2\14on_attach\0\fsources\0\rprettier\15formatting\frubocop\16diagnostics\rbuiltins none-ls.formatting.eslint_d!none-ls.diagnostics.eslint_d\nsetup\fnull-ls\frequire\0", "config", "none-ls.nvim")
+try_loadstring("\27LJ\2\n@\0\0\3\0\5\0\a6\0\0\0009\0\1\0009\0\2\0009\0\3\0005\2\4\0B\0\2\1K\0\1\0\1\0\1\nasync\1\vformat\bbuf\blsp\bvim¹\1\1\2\a\0\n\0\0159\2\0\0'\4\1\0B\2\2\2\15\0\2\0X\3\t€6\2\2\0009\2\3\0029\2\4\2'\4\5\0005\5\6\0=\1\a\0053\6\b\0=\6\t\5B\2\3\1K\0\1\0\rcallback\0\vbuffer\1\0\2\rcallback\0\vbuffer\0\16BufWritePre\24nvim_create_autocmd\bapi\bvim\28textDocument/formatting\20supports_method\2\1\0\b\0\14\0\0276\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\n\0004\4\5\0006\5\0\0'\a\3\0B\5\2\2>\5\1\0046\5\0\0'\a\4\0B\5\2\2>\5\2\0049\5\5\0009\5\6\0059\5\a\5>\5\3\0049\5\5\0009\5\b\0059\5\t\5>\5\4\4=\4\v\0033\4\f\0=\4\r\3B\1\2\1K\0\1\0\14on_attach\0\fsources\1\0\2\14on_attach\0\fsources\0\rprettier\15formatting\frubocop\16diagnostics\rbuiltins none-ls.formatting.eslint_d!none-ls.diagnostics.eslint_d\nsetup\fnull-ls\frequire\0", "config", "none-ls.nvim")
 time([[Config for none-ls.nvim]], false)
 
 _G._packer.inside_compile = false

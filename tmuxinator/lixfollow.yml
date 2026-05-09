@@ -3,46 +3,25 @@
 name: lixfollow
 root: ~/projects/lixibox/lixfollow
 
-# Optional tmux socket
-# socket_name: foo
+# Kill old processes that commonly keep ports busy BEFORE any window starts
+# Runs every time project starts
+on_project_start: |
+  echo "Cleaning old lixfollow processes/ports..."
 
-# Note that the pre and post options have been deprecated and will be replaced by
-# project hooks.
+  # Kill by known dev ports (adjust if yours differ)
+  lsof -ti tcp:8000 | xargs kill -9 2>/dev/null || true   # api
+  lsof -ti tcp:8001 | xargs kill -9 2>/dev/null || true   # admin
+  lsof -ti tcp:5555 | xargs kill -9 2>/dev/null || true   # flower/dashboard
+  lsof -ti tcp:6379 | xargs kill -9 2>/dev/null || true   # optional redis local
+  lsof -ti tcp:5432 | xargs kill -9 2>/dev/null || true   # optional postgres local
 
-# Project hooks
+  # Kill leftover honcho / uvicorn / celery from previous broken sessions
+  pkill -f "honcho" 2>/dev/null || true
+  pkill -f "uvicorn.*lixfollow" 2>/dev/null || true
+  pkill -f "celery.*lixfollow" 2>/dev/null || true
+  pkill -f "flower.*lixfollow" 2>/dev/null || true
 
-# Runs on project start, always
-# on_project_start: command
-
-# Run on project start, the first time
-# on_project_first_start: command
-
-# Run on project start, after the first time
-# on_project_restart: command
-
-# Run on project exit ( detaching from tmux session )
-# on_project_exit: command
-
-# Run on project stop
-# on_project_stop: command
-
-# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-# pre_window: rbenv shell 2.0.0-p247
-
-# Pass command line options to tmux. Useful for specifying a different tmux.conf.
-# tmux_options: -f ~/.tmux.mac.conf
-
-# Change the command to call tmux. This can be used by derivatives/wrappers like byobu.
-# tmux_command: byobu
-
-# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
-# startup_window: editor
-
-# Specifies (by index) which pane of the specified window will be selected on project startup. If not set, the first pane is used.
-# startup_pane: 1
-
-# Controls whether the tmux session should be attached to automatically. Defaults to true.
-# attach: false
+  sleep 1
 
 startup_window: editor
 
@@ -51,24 +30,22 @@ windows:
       layout: even-horizontal
       panes:
         - nvim
+
   - claude:
       layout: even-horizontal
       panes:
         - claude
+
   - hermes:
       layout: even-horizontal
       panes:
         - hermes
-  - console:
-      layout: even-horizontal
-      panes:
-        -
-        -
+
   - server:
       layout: even-horizontal
       panes:
-        -
-        -
+        - make dev
+
   - git:
       panes:
         - git status

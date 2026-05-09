@@ -461,7 +461,7 @@ command! -bang -nargs=* RGgo
 
 command! -bang -nargs=* RGrails
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading  --color=always --smart-case -g "*.{rb,erb,js,es6,css,sass,scss,yml,rake,haml,go,ts,tsx}" -- '.shellescape(<q-args>), 1,
+  \   'rg --column --line-number --no-heading  --color=always --smart-case -g "*.{rb,erb,js,es6,css,sass,scss,yml,rake,haml,go,ts,tsx,py}" -- '.shellescape(<q-args>), 1,
   \   {}, <bang>0)
 
 command! -bang -nargs=* RGspec
