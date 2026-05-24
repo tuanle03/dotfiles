@@ -36,15 +36,15 @@ windows:
       panes:
         - claude
 
-  - hermes:
-      layout: even-horizontal
-      panes:
-        - hermes
-
   - server:
       layout: even-horizontal
       panes:
         - make dev
+
+  - cloudflared:
+      layout: even-horizontal
+      panes:
+        - cloudflared tunnel run cnmeo-lixicrm
 
   - git:
       panes:
