@@ -1,0 +1,10 @@
+tunnel: cnmeo
+credentials-file: /Users/tuanle/.cloudflared/cd03bdad-32de-456c-8949-e13c2b01d7b0.json
+protocol: http2
+
+ingress:
+  - hostname: lixicrm.cnmeo.site
+    service: http://localhost:3000
+  - hostname: lixfollow.cnmeo.site
+    service: http://localhost:4000
+  - service: http_status:404

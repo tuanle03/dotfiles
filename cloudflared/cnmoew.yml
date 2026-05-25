@@ -1,0 +1,10 @@
+tunnel: cnmoew
+credentials-file: /Users/tuanle/.cloudflared/3e6280ed-e6fb-4cb1-bcfe-71f156588b0f.json
+protocol: http2
+
+ingress:
+  - hostname: survey.cnmoew.site
+    service: http://localhost:3000
+  - hostname: cnmoew.site
+    service: http://localhost:2106
+  - service: http_status:404

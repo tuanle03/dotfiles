@@ -77,8 +77,8 @@ windows:
   - cloudflare:
       layout: even-horizontal
       panes:
-        - cloudflared tunnel --config ~/.cloudflared/config-cnmeo.yml --protocol http2 run cnmeo-lixicrm
-        - cloudflared tunnel --config ~/.cloudflared/config-cnmoew.yml --protocol http2 run cnmoew-survey
+        - cloudflared tunnel run cnmeo
+        - cloudflared tunnel --config ~/.cloudflared/cnmoew.yml run
   - git:
       panes:
         - git status

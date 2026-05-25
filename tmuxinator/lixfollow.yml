@@ -44,7 +44,7 @@ windows:
   - cloudflared:
       layout: even-horizontal
       panes:
-        - cloudflared tunnel run cnmeo-lixicrm
+        - cloudflared tunnel run cnmeo
 
   - git:
       panes:

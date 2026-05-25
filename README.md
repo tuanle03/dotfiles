@@ -58,6 +58,7 @@ The script prints these at the end:
 | Tmux | `tmux/` | `~/.tmux.conf` etc. |
 | Zsh | `zsh/.zshrc` | `~/.zshrc` |
 | Tmuxinator | `tmuxinator/` | `~/.config/tmuxinator` |
+| Cloudflared | `cloudflared/*.yml` | `~/.cloudflared/` (configs only — credentials are machine-specific, see [cloudflared/README.md](cloudflared/README.md)) |
 
 ## Syncing Configs
 
