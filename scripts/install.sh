@@ -29,6 +29,13 @@ symlink "$DOTFILES/tmux/.tmux.conf.vim"   "$HOME/.tmux.conf.vim"
 echo "==> Tmuxinator"
 symlink "$DOTFILES/tmuxinator" "$HOME/.config/tmuxinator"
 
+echo "==> Cloudflared"
+# Configs reference per-tunnel credentials-file UUIDs that only exist after
+# `cloudflared tunnel create` on this machine. See cloudflared/README.md
+# for the full bootstrap. Symlinks are still useful so edits stay tracked.
+symlink "$DOTFILES/cloudflared/config.yml" "$HOME/.cloudflared/config.yml"
+symlink "$DOTFILES/cloudflared/cnmoew.yml" "$HOME/.cloudflared/cnmoew.yml"
+
 echo "==> Zsh"
 symlink "$DOTFILES/zsh/.zshrc" "$HOME/.zshrc"
 if [ ! -f "$HOME/.zshrc.secrets" ]; then
