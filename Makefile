@@ -1,4 +1,7 @@
-.PHONY: install sync
+.PHONY: bootstrap install sync
+
+bootstrap:
+	@bash scripts/bootstrap.sh
 
 install:
 	@bash scripts/install.sh
