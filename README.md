@@ -59,6 +59,7 @@ The script prints these at the end:
 | Zsh | `zsh/.zshrc` | `~/.zshrc` |
 | Tmuxinator | `tmuxinator/` | `~/.config/tmuxinator` |
 | Cloudflared | `cloudflared/*.yml` | `~/.cloudflared/` (configs only — credentials are machine-specific, see [cloudflared/README.md](cloudflared/README.md)) |
+| Claude Code | `.claude/` | `~/.claude/` (CLAUDE.md, RTK.md, DELEGATION.md, settings.json, agents/ — credentials & session state excluded) |
 
 ## Syncing Configs
 

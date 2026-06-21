@@ -43,6 +43,15 @@ if [ ! -f "$HOME/.zshrc.secrets" ]; then
   warn "Created ~/.zshrc.secrets from template — add your API keys there"
 fi
 
+echo "==> Claude Code"
+# Global config only — credentials (.credentials.json) and session state
+# (projects/, sessions/, logs) stay machine-local and are never tracked.
+symlink "$DOTFILES/.claude/CLAUDE.md"     "$HOME/.claude/CLAUDE.md"
+symlink "$DOTFILES/.claude/RTK.md"        "$HOME/.claude/RTK.md"
+symlink "$DOTFILES/.claude/DELEGATION.md" "$HOME/.claude/DELEGATION.md"
+symlink "$DOTFILES/.claude/settings.json" "$HOME/.claude/settings.json"
+symlink "$DOTFILES/.claude/agents"        "$HOME/.claude/agents"
+
 echo "==> Neovim plugins (packer.nvim)"
 PACKER="$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
 if [ ! -d "$PACKER" ]; then

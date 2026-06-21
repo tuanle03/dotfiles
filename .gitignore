@@ -11,3 +11,11 @@ nvim/plugin/packer_compiled.lua
 
 # macOS
 .DS_Store
+
+# Claude Code — track config only; never commit credentials, local overrides, or session state
+.claude/.credentials.json
+.claude/settings.local.json
+.claude/projects/
+.claude/sessions/
+.claude/*.log
+.claude/history.jsonl
