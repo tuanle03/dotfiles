@@ -1,5 +1,4 @@
 {
-  "model": "opus",
   "hooks": {
     "ConfigChange": [
       {
@@ -292,6 +291,10 @@
       }
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "python3 /Users/tuanle/.claude/statusline.py"
+  },
   "enabledPlugins": {
     "superpowers@claude-plugins-official": true,
     "understand-anything@understand-anything": false,
@@ -334,5 +337,6 @@
   "effortLevel": "high",
   "theme": "dark",
   "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "model": "haiku"
 }
