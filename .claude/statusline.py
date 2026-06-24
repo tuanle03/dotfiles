@@ -13,6 +13,7 @@ import subprocess
 import sys
 import time
 from datetime import datetime, timezone
+from pathlib import Path
 
 # ── ANSI helpers ─────────────────────────────────────────────────────────────
 
@@ -145,6 +146,23 @@ def git_info(cwd: str) -> str:
     except Exception:
         return ""
 
+# ── Login detection ───────────────────────────────────────────────────────────
+
+def is_fresh_login(grace_secs: float = 10.0) -> bool:
+    """
+    Check if credentials were just updated (fresh login/account switch).
+    Returns True if .credentials.json was modified within grace_secs.
+    """
+    cred_path = Path.home() / ".claude" / ".credentials.json"
+    if not cred_path.exists():
+        return False
+    try:
+        mtime = cred_path.stat().st_mtime
+        now = time.time()
+        return (now - mtime) < grace_secs
+    except Exception:
+        return False
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -153,6 +171,12 @@ def main() -> None:
         data = json.loads(raw) if raw.strip() else {}
     except Exception:
         data = {}
+
+    # Detect fresh login (account switch, re-auth) — skip stale data during transition
+    if is_fresh_login():
+        print(dim("╭─") + " " + f"🔑 {dim('logging in...')}")
+        print(dim("╰─") + " " + f"{dim('updating session data...')}")
+        return
 
     # ── Extract fields ────────────────────────────────────────────────────────
 
