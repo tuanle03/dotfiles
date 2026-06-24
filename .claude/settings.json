@@ -337,5 +337,6 @@
   "effortLevel": "high",
   "theme": "dark",
   "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "model": "haiku"
 }
