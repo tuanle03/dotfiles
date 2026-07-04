@@ -294,7 +294,7 @@
   },
   "enabledPlugins": {
     "superpowers@claude-plugins-official": true,
-    "understand-anything@understand-anything": true,
+    "understand-anything@understand-anything": false,
     "claude-mem@thedotmack": true,
     "caveman@caveman": true,
     "codex@openai-codex": true
@@ -331,7 +331,7 @@
       }
     }
   },
-  "effortLevel": "xhigh",
+  "effortLevel": "high",
   "theme": "dark",
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true
