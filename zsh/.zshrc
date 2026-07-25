@@ -92,3 +92,25 @@ eval "$(pyenv init -)"
 
 # API keys and tokens — stored locally, never committed
 [ -f ~/.zshrc.secrets ] && source ~/.zshrc.secrets
+
+# Claude Code — pick an account per session. Tokens live in ~/.claude-accounts (never committed).
+cc() {
+  local acct=$1
+  local dir=$HOME/.claude-accounts
+  if [ ! -f "$dir/$acct.token" ]; then
+    echo "usage: cc <account> [claude args...]" >&2
+    echo "accounts: $(ls $dir/*.token 2>/dev/null | xargs -n1 basename | sed 's/\.token$//' | tr '\n' ' ')" >&2
+    return 1
+  fi
+  shift
+  CLAUDE_CODE_OAUTH_TOKEN="$(<$dir/$acct.token)" \
+  CLAUDE_CONFIG_DIR="$dir/$acct/config" \
+    claude "$@"
+}
+
+# kimi-code
+export PATH="/Users/tuanle/.kimi-code/bin:$PATH"
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/tuanle/.local/bin:$PATH"
