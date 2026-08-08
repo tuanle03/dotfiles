@@ -1,0 +1,31 @@
+# ~/.config/tmuxinator/lixi-atlas.yml
+# Start:  mux lixi-atlas   (alias for `tmuxinator start lixi-atlas`)
+# Stop:   mux stop lixi-atlas
+
+name: lixi-atlas
+root: ~/projects/Lixibox/lixi-atlas
+
+# Load .env into every pane (foreman does this in bin/dev; we replicate so
+# panes running procs directly still get BASIC_AUTH / REDIS_URL / METABASE_*).
+pre_window: set -a; [ -f .env ] && source .env; set +a
+
+startup_window: rails
+
+windows:
+  - rails:
+      panes:
+        - PORT=3100 bundle exec rails s   # http://localhost:3100
+  - services:
+      layout: main-horizontal
+      panes:
+        - bundle exec vite dev
+        - bundle exec sidekiq
+  - cloudflare:
+      panes:
+        - cloudflared tunnel run cnmeo
+  - console:
+      panes:
+        - bin/rails console
+  - git:
+      panes:
+        - git status

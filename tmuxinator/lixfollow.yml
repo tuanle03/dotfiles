@@ -39,7 +39,9 @@ windows:
   - server:
       layout: even-horizontal
       panes:
-        - make dev
+        - make dev-web
+        - make dev-webhooks
+        - make dev-worker
 
   - cloudflared:
       layout: even-horizontal
