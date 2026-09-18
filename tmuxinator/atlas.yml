@@ -1,0 +1,29 @@
+# /Users/tuanle/.config/tmuxinator/atlas.yml
+
+name: atlas
+root: ~/projects/Lixibox/lixi-atlas
+
+startup_window: editor
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - nvim
+  - claude:
+      panes:
+        - claude
+  - console:
+      panes:
+        - rc
+  - server:
+      layout: main-horizontal
+      panes:
+        - bin/dev
+        - sh -c 'redis-cli ping >/dev/null 2>&1 || redis-server'
+  - cloudflare:
+      panes:
+        - cloudflared tunnel run cnmeo
+  - git:
+      panes:
+        - git status

@@ -1,0 +1,26 @@
+# /Users/tuanle/.config/tmuxinator/montra.yml
+# https://montra.cnmeo.site -> cnmeo tunnel -> vite :3020
+
+name: montra
+root: ~/projects/Lixibox/montra
+
+startup_window: editor
+
+windows:
+  - editor:
+      panes:
+        - nvim
+  - claude:
+      panes:
+        - claude
+  - server:
+      panes:
+        # port/host pinned in vite.config.ts (3020, strictPort, host)
+        - npm run dev
+  - cloudflare:
+      panes:
+        # one connector is enough; a second one just splits traffic with it
+        - sh -c 'pgrep -f "cloudflared tunnel" >/dev/null && echo "cnmeo tunnel already up: $(pgrep -f "cloudflared tunnel" | tr "\n" " ")" || cloudflared tunnel run cnmeo'
+  - git:
+      panes:
+        - git status

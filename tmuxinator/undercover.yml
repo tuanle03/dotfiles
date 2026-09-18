@@ -1,0 +1,30 @@
+# /Users/tuanle/.config/tmuxinator/undercover.yml
+# https://undercover.cnmeo.site -> tunnel -> vite :3010 -> proxy -> server :3001
+
+name: undercover
+root: ~/projects/undercover
+
+startup_window: editor
+
+windows:
+  - editor:
+      panes:
+        - nvim
+  - claude:
+      panes:
+        - claude
+  - server:
+      layout: main-horizontal
+      panes:
+        # 3001 is taken by a rails app, so the api sits on 3011
+        - PORT=3011 npm run dev -w server
+        # --host so 3010 answers on both 127.0.0.1 and ::1; otherwise vite binds
+        # ::1 only and cloudflared's "localhost" lookup is a coin flip
+        - SERVER_PORT=3011 npm run dev -w client -- --port 3010 --strictPort --host
+  - cloudflare:
+      panes:
+        # one connector is enough; a second one just splits traffic with it
+        - sh -c 'pgrep -f "cloudflared tunnel" >/dev/null && echo "cnmeo tunnel already up: $(pgrep -f "cloudflared tunnel" | tr "\n" " ")" || cloudflared tunnel run cnmeo'
+  - git:
+      panes:
+        - git status
