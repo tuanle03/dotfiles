@@ -9,4 +9,8 @@ ingress:
     service: http://localhost:3000
   - hostname: lixfollow.cnmeo.site
     service: http://localhost:4000
+  - hostname: montra.cnmeo.site
+    service: http://localhost:3020
+  - hostname: agentation.cnmeo.site
+    service: http://localhost:4747
   - service: http_status:404
