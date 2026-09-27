@@ -1,8 +1,17 @@
 # /Users/tuanle/.config/tmuxinator/montra.yml
-# https://montra.cnmeo.site -> cnmeo tunnel -> vite :3020
+#
+# Puma on :3020 is the only entry point: vite_rails proxies /vite-dev to the Vite
+# dev server on :3036 (config/vite.json). The cnmeo tunnel (~/.cloudflared/config.yml)
+# sends montra.cnmeo.site -> :3020 and agentation.cnmeo.site -> :4747.
+#
+# Same processes as the repo's Procfile.dev, one pane each instead of `bin/dev`
+# (overmind), so a `debugger` stops right in the rails pane.
 
 name: montra
 root: ~/projects/Lixibox/montra
+
+# PostgreSQL 18 is a brew service. No Redis in development: cable and jobs are async.
+on_project_start: pg_isready -q || brew services start postgresql@18
 
 startup_window: editor
 
@@ -13,14 +22,22 @@ windows:
   - claude:
       panes:
         - claude
-  - server:
+  - console:
       panes:
-        # port/host pinned in vite.config.ts (3020, strictPort, host)
-        - npm run dev
+        - bin/rails c
+  - server:
+      layout: main-horizontal
+      panes:
+        # -p pinned because the tunnel ingress points at 3020; a stray $PORT must not move it
+        - bin/rails s -p 3020
+        - bin/vite dev
+        # the agentation MCP in .mcp.json talks to this; without it UI notes stay in the browser
+        - npx -y agentation-mcp server --port 4747
   - cloudflare:
       panes:
-        # one connector is enough; a second one just splits traffic with it
-        - sh -c 'pgrep -f "cloudflared tunnel" >/dev/null && echo "cnmeo tunnel already up: $(pgrep -f "cloudflared tunnel" | tr "\n" " ")" || cloudflared tunnel run cnmeo'
+        # lixicrm may already run the cnmeo connector. The ^ anchor matches the cloudflared
+        # process itself, not the tmuxinator launcher script whose argv holds this very line.
+        - pgrep -qf '^([^ ]*/)?cloudflared tunnel run cnmeo' && echo 'cnmeo tunnel already running' || cloudflared tunnel run cnmeo
   - git:
       panes:
         - git status
