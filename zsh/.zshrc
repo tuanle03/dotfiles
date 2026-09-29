@@ -93,18 +93,20 @@ eval "$(pyenv init -)"
 # API keys and tokens — stored locally, never committed
 [ -f ~/.zshrc.secrets ] && source ~/.zshrc.secrets
 
-# Claude Code — pick an account per session. Tokens live in ~/.claude-accounts (never committed).
+# Claude Code — pick an account per session. Each account = own config dir + own
+# /login (Keychain entry per dir); projects/ is symlinked to ~/.claude/projects so
+# --resume sees every conversation from either account.
 cc() {
   local acct=$1
   local dir=$HOME/.claude-accounts
-  if [ ! -f "$dir/$acct.token" ]; then
+  if [ -z "$acct" ] || [ ! -d "$dir/$acct/config" ]; then
     echo "usage: cc <account> [claude args...]" >&2
-    echo "accounts: $(ls $dir/*.token 2>/dev/null | xargs -n1 basename | sed 's/\.token$//' | tr '\n' ' ')" >&2
+    echo "accounts: $(ls -d $dir/*/config 2>/dev/null | xargs -n1 dirname | xargs -n1 basename | tr '\n' ' ')" >&2
     return 1
   fi
   shift
-  CLAUDE_CODE_OAUTH_TOKEN="$(<$dir/$acct.token)" \
-  CLAUDE_CONFIG_DIR="$dir/$acct/config" \
+  env -u ANTHROPIC_API_KEY -u CLAUDE_CODE_OAUTH_TOKEN \
+    CLAUDE_CONFIG_DIR="$dir/$acct/config" \
     claude "$@"
 }
 
